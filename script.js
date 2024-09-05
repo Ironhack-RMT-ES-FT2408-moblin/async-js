@@ -33,17 +33,17 @@ setTimeout( laFuncionParaEjecutar, tiempoQueTardaráEnMilisegundos )
 // y luego lanza al mismo tiempo todas las ejecuciones asincronas
 
 
-let contador = 0;
-const intervaloId = setInterval(() => {
-  contador++
-  console.log("ejecutando esto", contador)
-  if (contador >= 5) {
-    console.log("deteniendo el intervalo")
-    clearInterval( intervaloId )
-  }
-}, 1500)
+// let contador = 0;
+// const intervaloId = setInterval(() => {
+//   contador++
+//   console.log("ejecutando esto", contador)
+//   if (contador >= 5) {
+//     console.log("deteniendo el intervalo")
+//     clearInterval( intervaloId )
+//   }
+// }, 1500)
 
-console.log(intervaloId)
+// console.log(intervaloId)
 
 // const intervaloId2 = setInterval(() => {
 //   console.log("ejecutando esto")
@@ -57,3 +57,27 @@ console.log(intervaloId)
 //   console.log("deteniendo el intervalo")
 //   clearInterval( intervaloId )
 // }, 7500)
+
+
+const divNode = document.querySelector("#timer")
+const h2Node = document.querySelector("#timer h2")
+const btnNode = document.querySelector("#timer button")
+
+btnNode.addEventListener("click", () => {
+
+  setInterval(() => {
+    h2Node.innerText++
+  }, 1000)
+
+  btnNode.remove()
+
+  const h3Node = document.createElement("h3")
+  h3Node.innerText = "Ha iniciado el timer!"
+
+  divNode.append(h3Node)
+
+  setTimeout(() => {
+    h3Node.remove()
+  }, 2000)
+
+})
