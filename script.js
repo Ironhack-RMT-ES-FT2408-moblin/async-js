@@ -73,7 +73,6 @@ btnNode.addEventListener("click", () => {
 
   const h3Node = document.createElement("h3")
   h3Node.innerText = "Ha iniciado el timer!"
-
   divNode.append(h3Node)
 
   setTimeout(() => {
@@ -81,3 +80,40 @@ btnNode.addEventListener("click", () => {
   }, 2000)
 
 })
+
+
+
+// Animaciones de DOM
+
+const gameBoxNode = document.querySelector("#game-box")
+const cubeNode = document.querySelector("#cube")
+
+gameBoxNode.style.backgroundColor = "darkgray"
+gameBoxNode.style.height = "300px"
+gameBoxNode.style.position = "relative" // esto lo hacemos para poder posicionar elementos internos en relación al div
+
+cubeNode.style.width = "30px"
+cubeNode.style.height = "30px"
+cubeNode.style.backgroundColor = "black"
+cubeNode.style.position = "absolute"
+cubeNode.style.top = "30px"
+
+let cubeX = 50 // valor inicial
+cubeNode.style.left = `${cubeX}px`
+
+let id = setInterval(() => {
+  // console.log("intervalo ocurriendo")
+
+  // cambiar la posición left (X) hacia la derecha un 1px
+
+  // cubeNode.style.left = "60px"
+  cubeX += 3
+  //! SIEMPRE QUE MODIFIQUEMOS ALGUNA VARIABLE DE TAMAÑO, POSICION, ESPACIO, STYLES. Luego debemos modificar el nodo.
+  console.log(cubeX)
+  cubeNode.style.left = `${cubeX}px`
+
+  if (cubeX >= 300) {
+    clearInterval(id)
+  }
+
+}, 50)
